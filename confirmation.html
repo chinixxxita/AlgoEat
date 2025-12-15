@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Order Confirmation - AlgoEats</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f5f0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .confirmation-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        
+        .confirmation-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .confirmation-header h1 {
+            color: #8B4513;
+            margin-bottom: 10px;
+        }
+        
+        .confirmation-icon {
+            font-size: 60px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        
+        .order-details, .shipping-details {
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #5D4037;
+            border-bottom: 2px solid #D7CCC8;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-name {
+            flex: 2;
+        }
+        
+        .item-quantity {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .item-price {
+            flex: 1;
+            text-align: right;
+        }
+        
+        .order-total {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: right;
+            margin-top: 15px;
+            color: #8B4513;
+        }
+        
+        .shipping-info p {
+            margin: 8px 0;
+        }
+        
+        .btn-continue {
+            display: block;
+            width: 200px;
+            margin: 30px auto 0;
+            padding: 12px;
+            background-color: #8B4513;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-continue:hover {
+            background-color: #A0522D;
+        }
+
+        .btn-print {
+            display: block;
+            width: 200px;
+            margin: 10px auto 0;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-print:hover {
+            background-color: #45a049;
+        }
+
+        @media print {
+            nav, footer, .btn-continue, .btn-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .container {
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 20px !important;
+            }
+            .confirmation-box {
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+            }
+            .confirmation-header h1 {
+                color: black !important;
+            }
+            .order-total {
+                color: black !important;
+            }
+        }
+        
+        .thank-you {
+            font-size: 1.2em;
+            text-align: center;
+            margin: 20px 0;
+            color: #5D4037;
+        }
+    </style>
+</head>
+<body>
+    <div id="welcome"></div>
+    <header>
+        <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="categories.html">Categories</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html" class="cart-btn">Cart <span class="cart-counter"></span></a>
+    <a href="checkout.html">Checkout</a>
+</nav>
+    </header>
+    
+    <div class="container">
+        <div class="confirmation-box">
+            <div class="confirmation-header">
+                <div class="confirmation-icon">✓</div>
+                <h1>Order Confirmed!</h1>
+                <p class="thank-you">Thank you for your purchase!</p>
+            </div>
+            
+            <div class="order-details">
+                <h2>Order Summary</h2>
+                <p><strong>Order Number:</strong> <span id="order-number"></span></p>
+                <p><strong>Date:</strong> <span id="order-date"></span></p>
+                <div id="order-items"></div>
+                <div class="order-total" id="order-total"></div>
+            </div>
+
+            <div class="shipping-details">
+                <h2>Customer Details</h2>
+                <div class="shipping-info" id="shipping-info"></div>
+            </div>
+            
+            <a href="products.html" class="btn-continue">Continue Shopping</a>
+            <button class="btn-print" onclick="window.print()">Print Confirmation</button>
+        </div>
+    </div>
+    
+    <footer>&copy; 2025 AlgoEats. All rights reserved.</footer>
+
+    <script>
+        function displayWelcome() {
+            const welcomeDiv = document.getElementById('welcome');
+            const username = localStorage.getItem('username');
+            if (username) {
+                welcomeDiv.textContent = `Welcome, ${username}!`;
+            }
+        }
+
+        function displayOrderDetails() {
+            const order = JSON.parse(localStorage.getItem('currentOrder'));
+            if (!order) {
+                window.location.href = 'products.html';
+                return;
+            }
+
+            // Display order number and date
+            document.getElementById('order-number').textContent = order.orderNumber;
+            document.getElementById('order-date').textContent = order.date;
+
+            // Display order items
+            const orderItemsDiv = document.getElementById('order-items');
+            order.items.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'order-item';
+                itemDiv.innerHTML = `
+                    <span class="item-name">${item.name}</span>
+                    <span class="item-quantity">${item.quantity}</span>
+                    <span class="item-price">₱${(item.price * item.quantity).toFixed(2)}</span>
+                `;
+                orderItemsDiv.appendChild(itemDiv);
+            });
+
+            // Display order total
+            document.getElementById('order-total').textContent = `Total: ₱${order.total.toFixed(2)}`;
+
+            // Display shipping information
+            const shippingInfoDiv = document.getElementById('shipping-info');
+            shippingInfoDiv.innerHTML = `
+                <p><strong>Name:</strong> ${order.customer.name}</p>
+                <p><strong>Email:</strong> ${order.customer.email}</p>
+                <p><strong>Address:</strong> ${order.customer.address}</p>
+                <p><strong>Phone:</strong> ${order.customer.phone}</p>
+                <p><strong>Payment Method:</strong> ${formatPaymentMethod(order.customer.payment)}</p>
+                <p><strong>Order Type:</strong> ${order.customer.orderType}</p>
+            `;
+        }
+
+        function formatPaymentMethod(payment) {
+            switch(payment) {
+                case 'cod': return 'Cash on Delivery';
+                case 'credit': return 'Credit Card';
+                case 'gcash': return 'GCash';
+                default: return payment;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            displayWelcome();
+            displayOrderDetails();
+        });
+    </script>
+</body>
+</html>

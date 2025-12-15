@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart - AlgoEats</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="welcome"></div>
+<header><h1>AlgoEats</h1></header>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="categories.html">Categories</a>
+<a href="products.html">Products</a>
+<a href="cart.html" class="cart-btn">Cart <span class="cart-counter"></span></a>
+<a href="checkout.html">Checkout</a>
+</nav>
+
+<main class="cart-container">
+  <div class="card">
+    <div class="card-header">Your Shopping Cart</div>
+    <div class="card-body">
+      <div id="cart-items"></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:1rem;">
+    <div class="card-header">Summary</div>
+    <div class="card-body cart-summary">
+      <div><strong>Total:</strong> <span id="total-price">₱0.00</span></div>
+      <div class="checkout-actions">
+        <button class="btn" onclick="clearCart()">Clear Cart</button>
+        <button class="btn" onclick="window.location.href='checkout.html'">Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+<p>&copy; 2025 CRISPY BLAZE. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="admin-body">
+
+    <aside class="sidebar">
+        <h2 class="logo">🍔 Admin</h2>
+
+        <nav>
+            <button class="nav-btn" onclick="showSection('dashboard')">Dashboard</button>
+            <button class="nav-btn" onclick="showSection('products')">Products</button>
+            <button class="nav-btn" onclick="showSection('orders')">Orders</button>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </nav>
+    </aside>
+
+    <main class="content-area">
+
+        <!-- DASHBOARD SECTION -->
+        <section id="dashboard" class="section active">
+            <h1>Dashboard</h1>
+
+            <div class="cards">
+                <div class="card yellow-card">
+                    <h3>Total Products</h3>
+                    <p id="total-products">0</p>
+                </div>
+
+                <div class="card red-card">
+                    <h3>Total Orders</h3>
+                    <p id="total-orders">0</p>
+                </div>
+
+                <div class="card white-card">
+                    <h3>Total Users</h3>
+                    <p id="total-users">1</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PRODUCT MANAGEMENT -->
+        <section id="products" class="section">
+            <h1>Product Management</h1>
+
+            <div class="admin-box">
+                <h3>Add Product</h3>
+
+                <label>Name:</label>
+                <input type="text" id="prod-name">
+
+                <label>Price:</label>
+                <input type="number" id="prod-price">
+
+                <label>Image URL:</label>
+                <input type="text" id="prod-image">
+
+                <button onclick="addProduct()">Add Product</button>
+            </div>
+
+            <h2>Product List</h2>
+            <div id="product-list"></div>
+        </section>
+
+
+        <!-- ORDER MANAGEMENT -->
+        <section id="orders" class="section">
+            <h1>Order Management</h1>
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showOrderTab('served')">Served Orders</button>
+            </div>
+
+            <div id="served-orders" class="order-tab active">
+                <div id="served-order-list" class="admin-box"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>

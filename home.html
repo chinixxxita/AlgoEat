@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>AlgoEats - Fast Food. Faster Flavor.</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+</head>
+<body>
+
+
+    <!-- Header / Nav -->
+    <header><h1>AlgoEats</h1></header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="categories.html">Categories</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html" class="cart-btn">Cart <span class="cart-counter"></span></a>
+        <a href="checkout.html">Checkout</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <img src="assets/BGGG.jpg" alt="Delicious fast food" class="hero-image">
+        <div class="hero-text">
+            <h1>AlgoEats: Fast Food. Faster Flavor.</h1>
+            <p>Experience the ultimate fast-food experience with our crispy, juicy burgers and golden fries</p>
+            <a href="products.html" class="btn-hero">Order Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section>
+        <h2 class="section-title">Our Signature Chocolates</h2>
+        <div class="featured-products">
+            <div class="feature-card">
+                <img src="/assets/Classic  CB.jpg" alt="Classic Cheeseburger">
+                <div class="feature-content">
+                    <h3>Classic Cheeseburger</h3>
+                    <p class="price">₱150.00</p>
+                    <button onclick="addToCart('Classic Cheeseburger', 150, '/assets/Classic  CB.jpg')" class="btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="/assets/CRISPY FC.jpg" alt="Crispy Fried Chicken">
+                <div class="feature-content">
+                    <h3>Crispy Fried Chicken (2pcs)</h3>
+                    <p class="price">₱180.00</p>
+                    <button onclick="addToCart('Crispy Fried Chicken (2pcs)', 180, '/assets/CRISPY FC.jpg')" class="btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="/assets/CRISPY FF.webp" alt="Loaded Cheese Fries">
+                <div class="feature-content">
+                    <h3>Loaded Cheese Fries</h3>
+                    <p class="price">₱120.00</p>
+                    <button onclick="addToCart('Loaded Cheese Fries', 120, '/assets/CRISPY FF.webp')" class="btn">Add to Cart</button>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img src="/assets/SPICY CB.avif" alt="Spicy Chicken Wings">
+                <div class="feature-content">
+                    <h3>Spicy Chicken Wings (6pcs)</h3>
+                    <p class="price">₱220.00</p>
+                    <button onclick="addToCart('Spicy Chicken Wings (6pcs)', 220, '/assets/SPICY CB.avif')" class="btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Special Offers Section -->
+    <section class="special-offers">
+        <h2 class="section-title">Special Offers</h2>
+        <div class="featured-products">
+            <div class="feature-card offer-card">
+                <div class="offer-badge">Limited</div>
+                <img src="assets/FAM MD.jpg" alt="Family Meal Deal">
+                <div class="feature-content">
+                    <h3>Family Meal Deal</h3>
+                    <p><span style="text-decoration: line-through; color:#888; margin-right:10px;">₱450.00</span>
+                    <span class="price">₱350.00</span></p>
+                    <button onclick="showOrderTypePopup('Family Meal Deal', 350, 'assets/FAM MD.jpg')" class="btn btn-accent">Add to Cart</button>
+                </div>
+            </div>
+            <div class="feature-card offer-card">
+                <div class="offer-badge">New</div>
+                <img src="assets/BF COMBO.jpg" alt="Combo Meal">
+                <div class="feature-content">
+                    <h3>Burger & Fries Combo</h3>
+                    <p><span style="text-decoration: line-through; color:#888; margin-right:10px;">₱380.00</span>
+                    <span class="price">₱300.00</span></p>
+                    <button onclick="showOrderTypePopup('Burger & Fries Combo', 300, 'assets/BF COMBO.jpg')" class="btn btn-accent">Add to Cart</button>
+                </div>
+            </div>
+            <div class="feature-card offer-card">
+                <div class="offer-badge">Bestseller</div>
+                <img src="/assets/Cripsy CN.jpg" alt="Chicken Nuggets">
+                <div class="feature-content">
+                    <h3>Crispy Chicken Nuggets (20pcs)</h3>
+                    <p><span style="text-decoration: line-through; color:#888; margin-right:10px;">₱600.00</span>
+                    <span class="price">₱500.00</span></p>
+                    <button onclick="showOrderTypePopup('Crispy Chicken Nuggets (20pcs)', 500, '/assets/Cripsy CN.jpg')" class="btn btn-accent">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2 class="section-title white-title">What Our Customers Say</h2>
+        <div class="featured-products">
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "The best burgers I've ever had! The Classic Cheeseburger is juicy and flavorful with perfect seasoning."
+                </div>
+                <div class="testimonial-author">- Nelessa Morillo</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "I ordered the Family Meal Deal for our gathering, and everyone loved it! The food was hot, fresh, and delicious."
+                </div>
+                <div class="testimonial-author">- Catherine Cuevas</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "As a food lover, I'm very impressed with the quality and flavor of AlgoEats dishes. Will definitely order again!"
+                </div>
+                <div class="testimonial-author">- Clarize Ibarreta</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Get exclusive offers, new menu items, and fast-food inspiration delivered to your inbox</p>
+        <form class="newsletter-form" id="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Reece's Chocolate</h3>
+                <p>Premium chocolate delights since 2023</p>
+                <p><i class="fas fa-map-marker-alt"></i> 456 Flavor St, Food City</p>
+                <p><i class="fas fa-phone"></i> (02) 9876-5432</p>
+                <p><i class="fas fa-envelope"></i> info@reeces.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+                <h3 style="margin-top: 20px;">Payment Methods</h3>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 AlgoEats. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" style="display:none; position:fixed; bottom:20px; right:20px; z-index:99; border:none; outline:none; background-color:#5D4037; color:white; cursor:pointer; padding:15px; border-radius:50%; font-size:18px;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Cart Notification -->
+    <div id="cart-notification" style="position:fixed; top:20px; right:20px; background-color:#4CAF50; color:white; padding:15px 25px; border-radius:5px; display:none; z-index:1000;"></div>
+
+
+
+    <!-- Script -->
+    <script type="text/plain">
+    // ====== SCRIPT.JS COMBINED ======
+    // Display welcome message with username
+    function displayWelcome() {
+        const welcomeDiv = document.getElementById('welcome');
+        const username = localStorage.getItem('username');
+        if (username) welcomeDiv.textContent = `Welcome, ${username}!`;
+    }
+
+
+
+    if (!localStorage.getItem('cart')) localStorage.setItem('cart', JSON.stringify([]));
+
+    function addToCart(productName, price, imageUrl) {
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        const existingItem = cart.find(item => item.name === productName);
+        if (existingItem) existingItem.quantity += 1;
+        else cart.push({name:productName, price:price, quantity:1, image:imageUrl});
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showCartNotification(productName);
+        updateCartCount();
+    }
+
+    function removeItem(index) {
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        cart.splice(index,1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCartItems();
+    }
+
+    function updateQuantity(index,newQuantity){
+        newQuantity = parseInt(newQuantity);
+        if(newQuantity<1)newQuantity=1;
+        const cart=JSON.parse(localStorage.getItem('cart'));
+        cart[index].quantity=newQuantity;
+        localStorage.setItem('cart',JSON.stringify(cart));
+        displayCartItems();
+    }
+
+    function clearCart() {
+        localStorage.setItem('cart', JSON.stringify([]));
+        if (document.getElementById('cart-items')) displayCartItems();
+        updateCartCount();
+    }
+
+    function displayCartItems(){
+        const cart=JSON.parse(localStorage.getItem('cart'))||[];
+        const cartItemsDiv=document.getElementById('cart-items');
+        const totalPriceElement=document.getElementById('total-price');
+        if(!cartItemsDiv) return;
+        if(cart.length===0){
+            cartItemsDiv.innerHTML='<div class="empty-cart">Your cart is empty</div>';
+            if(totalPriceElement) totalPriceElement.textContent='Total: ₱0';
+            return;
+        }
+        let total=0; cartItemsDiv.innerHTML='';
+        cart.forEach((item,index)=>{
+            const itemTotal=item.price*item.quantity; total+=itemTotal;
+            const itemDiv=document.createElement('div'); itemDiv.className='cart-item';
+            itemDiv.innerHTML=`
+                <img src="${item.image}" alt="${item.name}">
+                <div class="cart-item-info">
+                    <h3>${item.name}</h3>
+                    <p>₱${item.price.toFixed(2)}</p>
+                </div>
+                <div class="cart-item-controls">
+                    <div class="quantity-control">
+                        <button onclick="updateQuantity(${index}, ${item.quantity-1})">-</button>
+                        <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
+                        <button onclick="updateQuantity(${index}, ${item.quantity+1})">+</button>
+                    </div>
+                    <button class="remove-item" onclick="removeItem(${index})">×</button>
+                </div>
+            `;
+            cartItemsDiv.appendChild(itemDiv);
+        });
+        if(totalPriceElement) totalPriceElement.textContent=`Total: ₱${total.toFixed(2)}`;
+    }
+
+    function updateCartCount(){
+        const cart=JSON.parse(localStorage.getItem('cart'))||[];
+        const totalItems=cart.reduce((total,item)=>total+item.quantity,0);
+        document.querySelectorAll('.cart-counter').forEach(counter=>{
+            counter.textContent=totalItems;
+            counter.style.display=totalItems>0?'flex':'none';
+        });
+    }
+
+    function showCartNotification(productName){
+        const notification=document.getElementById('cart-notification');
+        if(!notification) return;
+        notification.textContent=`${productName} added to cart!`;
+        notification.style.display='block';
+        setTimeout(()=>{notification.style.display='none';},3000);
+    }
+
+    // Order Type Popup
+    let tempProduct=null;
+    function showOrderTypePopup(name, price, imageUrl){
+        tempProduct={name,price,imageUrl};
+        document.getElementById('order-type-popup').style.display='flex';
+    }
+    function setOrderType(type){
+        if(tempProduct){
+            addToCart(tempProduct.name,tempProduct.price,tempProduct.imageUrl,type);
+            tempProduct=null;
+        }
+        document.getElementById('order-type-popup').style.display='none';
+    }
+
+    function setupNewsletter(){
+        const form=document.getElementById('newsletter-form');
+        if(form) form.addEventListener('submit',function(e){
+            e.preventDefault();
+            const email=this.querySelector('input').value;
+            const subscriptions=JSON.parse(localStorage.getItem('newsletterSubscriptions'))||[];
+            subscriptions.push(email); localStorage.setItem('newsletterSubscriptions',JSON.stringify(subscriptions));
+            alert('Thank you for subscribing!');
+            this.reset();
+        });
+    }
+    
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

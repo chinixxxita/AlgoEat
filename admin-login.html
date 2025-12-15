@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-login-bg">
+
+    <div class="back-card">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+    </div>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h1>ADMIN Login</h1>
+            <input type="text" id="admin-username" placeholder="Username">
+            <input type="password" id="admin-password" placeholder="Password">
+            <button id="login-btn">Login</button>
+            <p id="login-error"></p>
+        </div>
+    </div>
+
+    <!-- Error Popup -->
+    <div id="error-popup" class="error-popup">
+        <div class="error-card">
+            <h3>Invalid Credentials</h3>
+            <p>Invalid password or username</p>
+            <button id="close-error">OK</button>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

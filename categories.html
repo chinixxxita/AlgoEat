@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Categories - AlgoEats</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+        }
+
+        .categories-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(17,17,17,0.8), rgba(17,17,17,0.8)),
+                        url('images/fastfood-banner.jpg') center/cover no-repeat;
+            box-shadow: 0 0 25px #ff3c38aa;
+        }
+        .categories-header h1 {
+            font-size: 2.8rem;
+            text-shadow: 0 0 10px #ff3c38;
+        }
+        .categories-header p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 1.1rem;
+            color: #ffcf44;
+        }
+
+        nav a {
+            color: #ffcf44;
+        }
+        nav a:hover {
+            color: #ff3c38;
+            text-shadow: 0 0 8px #ff3c38;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .category-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 15px #000;
+            transition: 0.3s;
+        }
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 20px #ff3c38aa;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .category-info {
+            padding: 20px;
+            text-align: center;
+        }
+        .category-info h3 {
+            color: #ffcf44;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        .category-info p {
+            color: #ccc;
+            margin-bottom: 12px;
+        }
+
+        .btn-explore {
+            background-color: #ff3c38;
+            padding: 8px 18px;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 0 10px #ff3c38aa;
+        }
+        .btn-explore:hover {
+            background-color: #ffcf44;
+            color: #111;
+            box-shadow: 0 0 12px #ffcf44aa;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="welcome"></div>
+
+    <header class="categories-header">
+        <h1>AlgoEats Menu Categories</h1>
+        <p>Explore our flavor-packed menu sections filled with burgers, chicken, fries, drinks, and more.</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="categories.html">Categories</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html" class="cart-btn">Cart <span class="cart-counter"></span></a>
+        <a href="checkout.html">Checkout</a>
+    </nav>
+
+    <main>
+        <div class="category-grid">
+
+            <div class="category-card">
+                <img src="assets/CATEGORY B.jpg" alt="Burgers">
+                <div class="category-info">
+                    <h3>Burgers</h3>
+                    <p>Juicy, bold, and handcrafted to perfection.</p>
+                    <a href="products.html?category=burgers" class="btn-explore">Explore</a>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="assets/CATEGORY FS.jpg" alt="Fries & Sides">
+                <div class="category-info">
+                    <h3>Fries & Sides</h3>
+                    <p>Crispy, golden, and irresistibly good.</p>
+                    <a href="products.html?category=sides" class="btn-explore">Explore</a>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="assets/CATEGORY CHICK.jpg" alt="Chicken Meals">
+                <div class="category-info">
+                    <h3>Chicken Meals</h3>
+                    <p>Crunchy, flavorful, and cooked to perfection.</p>
+                    <a href="products.html?category=chicken" class="btn-explore">Explore</a>
+                </div>
+            </div>
+
+            <div class="category-card">
+                <img src="assets/CATEGORY BEV.jpg" alt="Drinks">
+                <div class="category-info">
+                    <h3>Drinks</h3>
+                    <p>Refreshing beverages to complete your meal.</p>
+                    <a href="products.html?category=drinks" class="btn-explore">Explore</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AlgoEats</h3>
+                <p>Fast Food. Faster Flavor.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2025 AlgoEats. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>displayWelcome();</script>
+
+</body>
+</html>
